@@ -1,0 +1,27 @@
+{
+  "name": "temp-object",
+  "version": "1.0.0",
+  "description": "Helps to autoclean unused values from object.",
+  "main": "tempObject.js",
+  "keywords": [
+    "temp object",
+    "cache",
+    "expiry",
+    "expiry keys",
+    "expiry cache"
+  ],
+  "scripts": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ArthurKa/temp-object.git"
+  },
+  "author": {
+    "name": "ArthurKa",
+    "email": "arthur.katruk@gmail.com"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ArthurKa/temp-object/issues"
+  },
+  "homepage": "https://github.com/ArthurKa/temp-object#readme"
+}
