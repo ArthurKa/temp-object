@@ -34,6 +34,7 @@ function TempObject(ttl = 24 * 60 * 60 * 1000, { ...obj } = {}) {
     set(target, key, value) {
       target[key] = value;
       expiry[key] = setTimer(key);
+      return true;
     },
   });
 }

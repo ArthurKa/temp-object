@@ -1,14 +1,15 @@
 {
   "name": "temp-object",
-  "version": "1.0.0",
-  "description": "Helps to autoclean unused values from object.",
+  "version": "1.0.1",
+  "description": "Helps to automatically clean unused values from object.",
   "main": "tempObject.js",
   "keywords": [
-    "temp object",
+    "temp-object",
     "cache",
     "expiry",
-    "expiry keys",
-    "expiry cache"
+    "expiry-object",
+    "expiry-keys",
+    "expiry-cache"
   ],
   "scripts": {},
   "repository": {
