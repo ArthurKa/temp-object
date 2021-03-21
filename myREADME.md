@@ -1,21 +1,21 @@
 <header>
 
-Helps you to automatically clean **unused** (only) values from object in amount of time.
+Helps you to automatically clean **unused** (only) values from JavaScript object in amount of time.
 
 <installation>
 
 ## Usage
 ### Synopsis
-| Parameter | Type   | Name           | Required | Default value      | Description                    |
-|-----------|--------|----------------|----------|--------------------|--------------------------------|
-| 1st       | number | TTL            | false    | `86400000` (1 day) | Time to live (in milliseconds) |
-| 2nd       | object | Initial object | false    | `{}`               | Object with initial properties |
+| Parameter | Type   | Name           | Required | Default value      | Description
+|-----------|--------|----------------|----------|--------------------|-
+| 1st       | number | TTL            | false    | `86400000` (1 day) | Time to live (in milliseconds)
+| 2nd       | object | Initial object | false    | `{}`               | Object with initial **own** properties
 
 ### Example
-``` js
-const TempObject = require('.');
+```ts
+import TempObject from './temp-object';
 
-const wait = ms => new Promise(res => setTimeout(res, ms));
+const wait = (ms: number) => new Promise(res => setTimeout(res, ms));
 
 (async () => {
   const obj = new TempObject(1000, { firstKey: 1 });  // TTL 1 second

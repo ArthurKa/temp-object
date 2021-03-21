@@ -1,8 +1,9 @@
 {
   "name": "temp-object",
-  "version": "1.0.1",
-  "description": "Helps to automatically clean unused values from object.",
-  "main": "tempObject.js",
+  "version": "1.1.0",
+  "description": "Automatically clean unused values from JavaScript object.",
+  "main": "build/index.js",
+  "types": "build/index.d.ts",
   "keywords": [
     "temp-object",
     "cache",
@@ -11,7 +12,15 @@
     "expiry-keys",
     "expiry-cache"
   ],
-  "scripts": {},
+  "scripts": {
+    "build:clean": "rm -rf build/*",
+    "ts-compile": "tsc --declaration",
+    "my-compile": "node ../compile.js",
+    "build": "npm run build:clean && npm run ts-compile && npm run my-compile",
+    "publish:prepare": "mkdir -p ./build/build && mv ./build/* ./build/build; cp -r ./package* ./README.md ./build",
+    "pu": "npm pu ./build",
+    "my-publish": "npm run publish:prepare && npm run pu"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ArthurKa/temp-object.git"
@@ -24,5 +33,9 @@
   "bugs": {
     "url": "https://github.com/ArthurKa/temp-object/issues"
   },
-  "homepage": "https://github.com/ArthurKa/temp-object#readme"
+  "homepage": "https://github.com/ArthurKa/temp-object#readme",
+  "devDependencies": {
+    "@types/node": "^14.14.35",
+    "typescript": "^4.2.3"
+  }
 }
