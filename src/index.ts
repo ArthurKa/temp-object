@@ -1,4 +1,5 @@
-const TempObject = function(ttl = 24 * 60 * 60 * 1000, { ...initialObject }: Record<string, any> = {}) {
+const TempObject = function<T extends Record<string, any> = Record<string, any>>(ttl = 24 * 60 * 60 * 1000, io?: T): Partial<T> {
+  const initialObject = { ...io };
   let expiry: Record<string, NodeJS.Timer>;
 
   function setTimer(key: string) {
@@ -30,7 +31,7 @@ const TempObject = function(ttl = 24 * 60 * 60 * 1000, { ...initialObject }: Rec
       expiry[k] = setTimer(k);
       return true;
     },
-  });
-} as any as new (ttl?: number, initialObject?: Record<string, any>) => Record<string, any>;
+  }) as T;
+} as any as new <T extends Record<string, any> = Record<string, any>>(ttl?: number, initialObject?: T) => Partial<T>;
 
 export default TempObject;
