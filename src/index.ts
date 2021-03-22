@@ -1,10 +1,13 @@
 const TempObject = function<T extends Record<string, any> = Record<string, any>>(ttl = 24 * 60 * 60 * 1000, io?: T): Partial<T> {
   const initialObject = { ...io };
-  let expiry: Record<string, NodeJS.Timer>;
+  let expiry: Record<string, NodeJS.Timeout>;
 
   function setTimer(key: string) {
     if(expiry) {
-      clearTimeout(expiry[key]);
+      const timeout = expiry[key];
+      if(timeout) {
+        clearTimeout(timeout);
+      }
     }
     return setTimeout(() => {
       delete initialObject[key];
