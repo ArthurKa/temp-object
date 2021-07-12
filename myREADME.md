@@ -15,7 +15,7 @@ Helps you to automatically clean **unused** (only) values from JavaScript object
 ```ts
 import TempObject from './temp-object/src';
 
-const wait = (ms: number) => new Promise(res => setTimeout(res, ms));
+const wait = (ms: number) => new Promise<void>(res => setTimeout(res, ms));
 
 interface MyObj {
   firstKey: number;
