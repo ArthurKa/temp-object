@@ -16,6 +16,7 @@ const TempObject = function<T extends Record<string, any> = Record<string, any>>
   }
 
   expiry = Object.keys(initialObject).reduce((obj, key) => {
+    // eslint-disable-next-line no-param-reassign
     obj[key] = setTimer(key);
     return obj;
   }, {} as typeof expiry);
@@ -30,6 +31,7 @@ const TempObject = function<T extends Record<string, any> = Record<string, any>>
     },
     set(target, key, value) {
       const k = key as string;
+      // eslint-disable-next-line no-param-reassign
       target[k] = value;
       expiry[k] = setTimer(k);
       return true;
